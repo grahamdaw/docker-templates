@@ -2,13 +2,19 @@
 
 A basic Node JS API template using Express.
 
-## Container
+## via Compose
+```
+docker-compose up
+```
+
+## via Dockerfile
+
 To build:
 ```
-docker build -t node-api .
+docker build -t basic-node-api .
 ```
 
 To run:
 ```
-docker run -dp 80:8080 node-api
+docker run --name basic-node-api -dp 8080:8080 basic-node-api
 ```
