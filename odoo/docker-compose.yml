@@ -1,0 +1,19 @@
+version: "3"
+services:
+  app:
+    image: odoo:14
+    environment:
+      HOST: db
+      USER: odoo_user
+      PASSWORD: odoo_db_pass
+    ports:
+      - '8069:8069'
+    links:
+      # Note the alias of the container running Postgres must be db for Odoo to be able to connect to it
+      - db
+  db:
+    image: postgres:10
+    environment:
+      POSTGRES_USER: odoo_user
+      POSTGRES_PASSWORD: odoo_db_pass
+      POSTGRES_DB: postgres
